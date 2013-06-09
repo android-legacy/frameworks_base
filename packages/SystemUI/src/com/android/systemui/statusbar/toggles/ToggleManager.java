@@ -97,6 +97,8 @@ public class ToggleManager {
     public static final String SCREENSHOT_TOGGLE = "SCREENSHOT";
     public static final String REBOOT_TOGGLE = "REBOOT";
     public static final String CUSTOM_TOGGLE = "CUSTOM";
+    public static final String STAYAWAKE_TOGGLE = "STAYAWAKE";
+    public static final String WIRELESS_ADB_TOGGLE = "WIRELESSADB";
 
     private int mStyle;
 
@@ -164,6 +166,8 @@ public class ToggleManager {
             toggleMap.put(SCREENSHOT_TOGGLE, ScreenshotToggle.class);
             toggleMap.put(REBOOT_TOGGLE, RebootToggle.class);
             toggleMap.put(CUSTOM_TOGGLE, CustomToggle.class);
+            toggleMap.put(STAYAWAKE_TOGGLE, StayAwakeToggle.class);
+            toggleMap.put(WIRELESS_ADB_TOGGLE, WirelessAdbToggle.class);
             // toggleMap.put(BT_TETHER_TOGGLE, null);
         }
         return toggleMap;
