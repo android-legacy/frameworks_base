@@ -1,7 +1,4 @@
 /*
- * Copyright (C) 2008 The Android Open Source Project
- * Copyright (C) 2012-2013 The CyanogenMod Project
- * Copyright (c) 2013, The Linux Foundation. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -3878,7 +3875,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         }
                     }
 
-                }
                 if (isFMActive() && (result & ACTION_PASS_TO_USER) == 0) {
                     handleVolumeKey(AudioManager.STREAM_FM, keyCode);
                     break;
