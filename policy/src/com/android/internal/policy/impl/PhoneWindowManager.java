@@ -4151,7 +4151,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         }
                     }
 
-                }
                 if (isFMActive() && (result & ACTION_PASS_TO_USER) == 0) {
                     handleVolumeKey(AudioManager.STREAM_FM, keyCode);
                     break;
