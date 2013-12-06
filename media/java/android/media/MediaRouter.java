@@ -765,6 +765,38 @@ public class MediaRouter {
     }
 
     /**
+     * Returns true if there is a route that matches the specified types.
+     * <p>
+     * This method returns true if there are any available routes that match the types
+     * regardless of whether they are enabled or disabled.  If the
+     * {@link #AVAILABILITY_FLAG_IGNORE_DEFAULT_ROUTE} flag is specified, then
+     * the method will only consider non-default routes.
+     * </p>
+     *
+     * @param types The types to match.
+     * @param flags Flags to control the determination of whether a route may be available.
+     * May be zero or {@link #AVAILABILITY_FLAG_IGNORE_DEFAULT_ROUTE}.
+     * @return True if a matching route may be available.
+     *
+     * @hide Future API ported from support library.  Revisit this later.
+     */
+    public boolean isRouteAvailable(int types, int flags) {
+        final int count = sStatic.mRoutes.size();
+        for (int i = 0; i < count; i++) {
+            RouteInfo route = sStatic.mRoutes.get(i);
+            if (route.matchesTypes(types)) {
+                if ((flags & AVAILABILITY_FLAG_IGNORE_DEFAULT_ROUTE) == 0
+                        || route != sStatic.mDefaultAudioVideo) {
+                    return true;
+                }
+            }
+        }
+
+        // It doesn't look like we can find a matching route right now.
+        return false;
+    }
+
+    /**
      * Add a callback to listen to events about specific kinds of media routes.
      * If the specified callback is already registered, its registration will be updated for any
      * additional route types specified.
